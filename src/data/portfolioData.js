@@ -119,7 +119,7 @@ export const experience = [
     duration: 'December 2025 – Present',
     badge: 'Company Project',
     description:
-      'At Vensyx Data Solutions, I contribute to production-oriented web applications and data-driven enterprise workflows. My work includes developing responsive React.js interfaces, integrating REST APIs, developing Java Spring Boot and Node.js backend services, optimizing MySQL and Hibernate/JPA data workflows, validating application data, supporting ETL automation, testing features, debugging issues, and collaborating in Agile/Scrum delivery cycles.',
+      'At Vensyx Data Solutions, I contribute to production-oriented web applications and data-driven enterprise workflows, including a real estate platform and ClassLingoAI, an education platform for students to learn, practice, and build knowledge. My work includes developing responsive React.js interfaces, integrating REST APIs, developing Java Spring Boot and Node.js backend services, optimizing MySQL and Hibernate/JPA data workflows, validating application data, supporting ETL automation, testing features, debugging issues, and collaborating in Agile/Scrum delivery cycles.',
     highlights: [
       'Built responsive React.js components integrated with REST APIs.',
       'Developed backend services with Java, Spring Boot, Node.js, and MySQL.',
@@ -150,6 +150,42 @@ export const projects = [
     liveUrl: '', // hide Live Demo button until a real URL is supplied
   },
   {
+    // TODO: confirm the exact project name, tech stack, and any real results —
+    // the values below are generic placeholders based on your existing skill set.
+    id: 'organic-farming',
+    name: 'Organic Farming Management System',
+    badge: 'Personal / Academic Project',
+    badgeType: 'personal',
+    stack: ['Java', 'Spring Boot', 'MySQL', 'Hibernate/JPA'], // TODO: confirm actual tech stack used
+    description:
+      'Built a college project to digitize organic farming record-keeping — covering crop and land data entry, farming-activity tracking, and structured storage in place of manual registers.', // TODO: refine description with real project details
+    features: [
+      'Structured data entry for crop and farm records',
+      'Backend workflows for tracking farming activity',
+      'Relational database design for agricultural data',
+    ], // TODO: add real results/metrics if available, or leave as feature list
+    githubUrl: '',
+    liveUrl: '',
+  },
+  {
+    // TODO: confirm the exact project name, tech stack, and any real results —
+    // the values below are generic placeholders based on your existing skill set.
+    id: 'sericulture',
+    name: 'Sericulture Management System',
+    badge: 'Personal / Academic Project',
+    badgeType: 'personal',
+    stack: ['Java', 'Spring Boot', 'MySQL', 'Hibernate/JPA'], // TODO: confirm actual tech stack used
+    description:
+      'Built a college project to support sericulture (silk farming) record management — organizing rearing-cycle data, production tracking, and related workflows in a structured application.', // TODO: refine description with real project details
+    features: [
+      'Structured tracking of rearing cycles and production data',
+      'Backend workflows for sericulture record management',
+      'Relational database design for domain-specific data',
+    ], // TODO: add real results/metrics if available, or leave as feature list
+    githubUrl: '',
+    liveUrl: '',
+  },
+  {
     id: 'real-estate',
     name: 'Real Estate Web Application',
     badge: 'Professional Contribution — Vensyx Data Solutions',
@@ -162,6 +198,21 @@ export const projects = [
       'Contributed to MySQL query and data-model optimization that improved response time by 35%.',
       'Helped deliver responsive interfaces and integrated application workflows.',
     ],
+    confidentialityNote:
+      "This is a company-owned project built at Vensyx Data Solutions. Source code, internal URLs, dashboards, and client data are confidential and are not displayed here. The description above reflects my individual contribution to the project, not the full scope or ownership of the product.",
+  },
+  {
+    // TODO: confirm tech stack and any real results/metrics for ClassLingoAI.
+    id: 'classlingo-ai',
+    name: 'ClassLingoAI',
+    badge: 'Professional Contribution — Vensyx Data Solutions',
+    badgeType: 'professional',
+    stack: ['React.js', 'Java', 'Spring Boot', 'MySQL', 'Hibernate/JPA'], // TODO: confirm actual tech stack used
+    description:
+      'Contributing to ClassLingoAI, an education platform that helps students learn, practice, and build knowledge, through responsive frontend development, REST API integration, backend and database workflow support, data validation, and testing. This is a company-owned project; confidential code, internal URLs, and client data are not displayed.',
+    outcomes: [
+      'Contributing to frontend and backend workflows supporting student learning and practice features.',
+    ], // TODO: add real outcomes/metrics once available
     confidentialityNote:
       "This is a company-owned project built at Vensyx Data Solutions. Source code, internal URLs, dashboards, and client data are confidential and are not displayed here. The description above reflects my individual contribution to the project, not the full scope or ownership of the product.",
   },
