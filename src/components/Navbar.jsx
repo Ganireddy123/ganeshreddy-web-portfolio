@@ -130,24 +130,22 @@ export default function Navbar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'block', md: 'none' } }} />
 
           <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-            <Tooltip title={profile.resumeUrl ? '' : 'Resume link not yet added'}>
-              <span>
-                <Button
-                  variant="outlined"
-                  startIcon={<Download size={16} />}
-                  disabled={!profile.resumeUrl}
-                  href={profile.resumeUrl || undefined}
-                  target={profile.resumeUrl ? '_blank' : undefined}
-                  rel={profile.resumeUrl ? 'noopener noreferrer' : undefined}
-                  sx={{
-                    borderColor: tokens.borderStrong,
-                    color: tokens.textHigh,
-                    '&:hover': { borderColor: tokens.blue, background: 'rgba(79,140,255,0.08)' },
-                  }}
-                >
-                  Download Resume
-                </Button>
-              </span>
+            <Tooltip title="Download my resume PDF">
+              <Button
+                variant="outlined"
+                startIcon={<Download size={16} />}
+                component="a"
+                href={profile.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  borderColor: tokens.borderStrong,
+                  color: tokens.textHigh,
+                  '&:hover': { borderColor: tokens.blue, background: 'rgba(79,140,255,0.08)' },
+                }}
+              >
+                Download Resume
+              </Button>
             </Tooltip>
           </Box>
 
@@ -200,10 +198,10 @@ export default function Navbar() {
             fullWidth
             variant="outlined"
             startIcon={<Download size={16} />}
-            disabled={!profile.resumeUrl}
-            href={profile.resumeUrl || undefined}
-            target={profile.resumeUrl ? '_blank' : undefined}
-            rel={profile.resumeUrl ? 'noopener noreferrer' : undefined}
+            component="a"
+            href={profile.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             sx={{ borderColor: tokens.borderStrong, color: tokens.textHigh }}
           >
             Download Resume

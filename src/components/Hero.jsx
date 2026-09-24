@@ -174,21 +174,19 @@ export default function Hero() {
               >
                 Contact Me
               </Button>
-              <Tooltip title={profile.resumeUrl ? '' : 'Resume link not yet added'}>
-                <span>
-                  <Button
-                    size="large"
-                    variant="text"
-                    startIcon={<Download size={18} />}
-                    disabled={!profile.resumeUrl}
-                    href={profile.resumeUrl || undefined}
-                    target={profile.resumeUrl ? '_blank' : undefined}
-                    rel={profile.resumeUrl ? 'noopener noreferrer' : undefined}
-                    sx={{ color: tokens.textMuted, '&:hover': { color: tokens.textHigh, background: 'rgba(255,255,255,0.04)' } }}
-                  >
-                    Download Resume
-                  </Button>
-                </span>
+              <Tooltip title="Download my resume PDF">
+                <Button
+                  size="large"
+                  variant="text"
+                  startIcon={<Download size={18} />}
+                  component="a"
+                  href={profile.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{ color: tokens.textMuted, '&:hover': { color: tokens.textHigh, background: 'rgba(255,255,255,0.04)' } }}
+                >
+                  Download Resume
+                </Button>
               </Tooltip>
             </Stack>
 

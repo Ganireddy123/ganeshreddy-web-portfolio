@@ -10,7 +10,7 @@ export const profile = {
   email: 'ganireddy0125@gmail.com',
   linkedin: 'https://linkedin.com/in/ganireddy94',
   github: '', // no GitHub URL supplied — related buttons/icons stay hidden
-  resumeUrl: '', // add a real resume file path/URL here to enable the download button
+  resumeUrl: 'https://drive.google.com/file/d/1T2ZRO-G6durmWzZlcKuMN6wV2MJLQRqM/view?usp=drivesdk',
 };
 
 export const heroRotatingText = [

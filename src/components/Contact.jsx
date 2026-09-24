@@ -36,14 +36,14 @@ function validate(values) {
 export default function Contact() {
   const [values, setValues] = useState(initialForm);
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState(null); // 'success' | 'error' | null
+  const [status, setStatus] = useState(null); // 'success' | 'error' | 'submitting' | null
 
   const handleChange = (field) => (e) => {
     setValues((v) => ({ ...v, [field]: e.target.value }));
     setStatus(null);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate(values);
     setErrors(validationErrors);
@@ -53,9 +53,31 @@ export default function Contact() {
       return;
     }
 
-    // No backend email integration is configured in this build.
-    // Real submission wiring (API route, EmailJS, Formspree, etc.) can replace this block.
-    setStatus('info');
+    setStatus('submitting');
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${profile.email}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          subject: values.subject,
+          message: values.message,
+          _replyto: values.email,
+          _subject: `Portfolio message: ${values.subject}`,
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      });
+
+      if (!response.ok) throw new Error('Message delivery failed');
+      setValues(initialForm);
+      setErrors({});
+      setStatus('success');
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
@@ -170,13 +192,11 @@ export default function Contact() {
                       />
                     </Grid>
                     <Grid item xs={12}>
-                      {status === 'info' && (
-                        <Alert severity="info" sx={{ mb: 2 }}>
-                          Thanks for reaching out. Please email me directly at {profile.email}.
-                        </Alert>
-                      )}
+                      {status === 'success' && <Alert severity="success" sx={{ mb: 2 }}>Thanks for reaching out. Your message was sent successfully.</Alert>}
+                      {status === 'error' && <Alert severity="error" sx={{ mb: 2 }}>Your message could not be sent. Please email me directly at {profile.email}.</Alert>}
                       <Button
                         type="submit"
+                        disabled={status === 'submitting'}
                         size="large"
                         variant="contained"
                         endIcon={<Send size={17} />}
@@ -188,7 +208,7 @@ export default function Contact() {
                           '&:hover': { filter: 'brightness(1.08)' },
                         }}
                       >
-                        Send Message
+                        {status === 'submitting' ? 'Sending...' : 'Send Message'}
                       </Button>
                     </Grid>
                   </Grid>
