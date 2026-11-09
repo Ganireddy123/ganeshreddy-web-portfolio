@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Box, Container, Stack, Typography, Chip } from '@mui/material';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { Code2, Server, Database, FlaskConical, Wrench } from 'lucide-react';
+import { Code2, Server, Database, FlaskConical, Sparkles, Wrench } from 'lucide-react';
 import SectionHeading from './SectionHeading.jsx';
 import GlassCard from './GlassCard.jsx';
 import Reveal from './Reveal.jsx';
@@ -13,6 +13,7 @@ const categoryIcons = {
   backend: Server,
   data: Database,
   testing: FlaskConical,
+  ai: Sparkles,
   tools: Wrench,
 };
 
@@ -40,7 +41,7 @@ export default function Skills() {
             aria-label="Skill categories"
           >
             {skillCategories.map((cat) => {
-              const Icon = categoryIcons[cat.key];
+              const Icon = categoryIcons[cat.key] || Wrench;
               const isActive = active === cat.key;
               return (
                 <Box
